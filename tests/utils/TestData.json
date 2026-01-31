@@ -1,0 +1,10 @@
+{
+    "login":{"username": "Admin",
+    "password": "admin123"},
+    "empPageUrl": "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index",
+    "employee":{
+    "firstName": "Santhosh55",
+    "lastName": "Kennedy2",
+    "EmpId":"0379"
+}
+}
