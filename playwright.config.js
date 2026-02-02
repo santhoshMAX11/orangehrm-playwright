@@ -1,22 +1,26 @@
 
 import { defineConfig, devices } from '@playwright/test';
-//import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
-//dotenv.config({ path:`./config/qa.env` });
- 
+dotenv.config({
+  path: `./config/${process.env.ENV || 'qa'}.env`,
+});
+
 export default defineConfig({
   testDir: './tests',
-  timeout:40*1000,
-  fullyParallel: true,
-  retries: process.env.CI ? 2 : 0,
-  reporter: 'html',
+  timeout: 40 * 1000,
+    workers: 1,
+  // fullyParallel: true,
+  retries: 2, // Retry failed tests twice for stability
+  reporter: [['html', { open: 'never' }]],
   
   use: {
-    baseURL: "https://opensource-demo.orangehrmlive.com",
+    baseURL: process.env.BASE_URL,
     headless:true,
-    screenshot:'only-on-failure',
-    video: 'retain-on-failure',
-    trace: 'on-first-retry',
+    screenshot:'only-on-failure', // Capture screenshots on failure
+    video: 'retain-on-failure', // Capture video on failure
+    trace: 'on-first-retry', // Capture trace on first retry
+    storageState: undefined
   },
   projects: [
     {

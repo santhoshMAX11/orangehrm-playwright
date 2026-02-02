@@ -1,10 +1,12 @@
 {
-    "login":{"username": "Admin",
-    "password": "admin123"},
-    "empPageUrl": "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index",
-    "employee":{
-    "firstName": "Santhosh55",
-    "lastName": "Kennedy2",
-    "EmpId":"0379"
-}
+    "employee": {
+        "firstName": "Santhosh",
+        "lastName": "Kennedy",
+        "EmpId": "0379",
+        "ROLE":"Admin",
+        "UpdateName":"Automation Test",
+        "NegativeUser":"santo",
+        "NegativePassword":"admin"
+    }
+    
 }
