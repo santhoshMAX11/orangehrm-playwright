@@ -2,7 +2,7 @@ export default class DashboardPage {
   constructor(page) {
     this.page = page;
     this.pimMenu = page.getByRole('link', { name: 'PIM' });
-    this.roleButton = page.getByRole('link', { name: 'Admin' })
+    this.roleButton =  page.getByRole('link', { name: 'Admin' })
   }
 
   async goToPIM() {
@@ -10,9 +10,9 @@ export default class DashboardPage {
     await this.pimMenu.click();
   }
 
-  async getrole() {
-    const text = await this.roleButton.innerText();
-    return text
+  async getRoleText() {
+        await this.roleButton.waitFor({ state: 'visible' });
+            return await this.roleButton.innerText();
 
   }
 }

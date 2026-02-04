@@ -11,7 +11,7 @@ export default defineConfig({
   timeout: 40 * 1000,
     workers: 1,
   // fullyParallel: true,
-  retries: 2, // Retry failed tests twice for stability
+  retries: 0, // Retry failed tests twice for stability
   reporter: [['html', { open: 'never' }]],
   
   use: {

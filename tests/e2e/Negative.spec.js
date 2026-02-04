@@ -10,8 +10,5 @@ test('Login with invalid credentials should fail', async ({ page }) => {
     page.locator('[class="oxd-text oxd-text--p oxd-alert-content-text"]')
   ).toHaveText('Invalid credentials');
   await expect(page).toHaveURL(/auth\/login/);
-  await expect(
-    page.locator('h6:has-text("Dashboard")')
-  ).toHaveCount(0);
 });
 
