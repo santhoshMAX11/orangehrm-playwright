@@ -7,10 +7,10 @@ export default class EmployeePage {
     this.FirstName = '[name="firstName"]'
     this.LastName = '[name="lastName"]'
     this.EnterEmpId = '//label[normalize-space()="Employee Id"]/parent::div/following-sibling::div/input'
-    this.SaveBtn = '[type="submit"]'
-    this.SearchBtn = '[type="submit"]'
-    this.YesDeleteBtn = '//i[@class="oxd-icon bi-trash oxd-button-icon"]'
-    this.SaveUpdate = '[class="orangehrm-horizontal-padding orangehrm-vertical-padding"] [type="submit"]'
+    this.SaveBtn = page.getByRole('button', { name: 'Save' })
+    this.SearchBtn = page.getByRole('button', { name: 'Search' })
+    this.YesDeleteBtn = page.getByRole('button', { name: 'Yes, Delete' })
+    this.SaveUpdate = page.getByRole('button', { name: 'Save' });
 
   }
 
@@ -22,7 +22,7 @@ export default class EmployeePage {
     await this.page.fill(this.LastName, SecondName)
     await this.page.fill(this.EnterEmpId, "")
     await this.page.fill(this.EnterEmpId, EI)
-    await this.page.click(this.SaveBtn)
+    await  this.SaveBtn.click()
 
   }
 
@@ -32,12 +32,11 @@ export default class EmployeePage {
 
   async searchAndWait(empId) {
     await this.page.fill(this.EnterEmpId, empId)
-    await this.page.click(this.SearchBtn)
+    await  this.SearchBtn.click()
   }
   async deleteEmployee(empId){
-    await this.page.click(`//div[text()='${empId}']/parent::div/preceding-sibling::div`);
     await this.page.click(`//div[text()="${empId}"]/ancestor::div[@class="oxd-table-row oxd-table-row--with-border oxd-table-row--clickable"]//i[@class="oxd-icon bi-trash"]`);
-    await this.page.click(this.YesDeleteBtn)
+    await  this.YesDeleteBtn.click()
   }
 
 
@@ -49,7 +48,7 @@ export default class EmployeePage {
     const firstName = this.page.locator(this.FirstName);
     await firstName.click();          
     await firstName.fill(UpdatedName); 
-    await this.page.locator(this.SaveUpdate).click()
+    await this.SaveUpdate.click()
   }
 
 }

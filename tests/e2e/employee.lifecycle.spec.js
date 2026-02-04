@@ -37,7 +37,6 @@ test.describe.serial('ordered flow', () => {
     ).toBeVisible();
     await empPage.searchAndWait(testData.employee.EmpId)
     await expect(page.locator(`//div[@class="oxd-table-card"]//div[text()="${testData.employee.EmpId}"]`)).toBeVisible()
-    await expect(row).toBeVisible();
     await empPage.ClickingOnEdit(testData.employee.EmpId)
     await expect(page.locator('input[name="firstName"]')).toBeVisible();
     await empPage.Updatefirstname(testData.employee.UpdateName)
